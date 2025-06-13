@@ -1,12 +1,14 @@
 import React, { use } from 'react';
 import { FaRegStar } from "react-icons/fa";
+import { Link } from 'react-router';
 
 const Book = ({singleBook}) => {
     //bookPromise
     // const data=use(bookPromise)
     // console.log("hi",data)
-    const {bookName,author,image,rating,category,review,tags,yearOfPublishing,publisher}=singleBook;
+    const {bookName,author,bookId,image,rating,category,review,tags,yearOfPublishing,publisher}=singleBook;
     return (
+        <Link to={`/bookDetails/${bookId}`}>
         <div className="card  w-96  border  bg-gray-500 p-6 shadow-2xl">
   <figure className='p-3   bg-gray-400'>
     <img className='h-[166px]'
@@ -30,7 +32,8 @@ const Book = ({singleBook}) => {
       <div className="badge badge-outline">{rating}<FaRegStar /></div>
     </div>
   </div>
-</div>
+        </div>
+        </Link>
     );
 };
 
